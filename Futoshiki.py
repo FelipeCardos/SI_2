@@ -1,10 +1,10 @@
 from csp import *
     
 def diferentes(x,y):
-    return x != y
+    return x != y 
 
 def Futoshiki(n):
-    variables = [x for x in range(n)]
+    variables = [str(x) for x in range(1,n+1)]
     domains = {}
     neighbors = ''
     restricoes = {}
@@ -13,7 +13,12 @@ def Futoshiki(n):
         neighbors+= str(variable) + ' : ' + str(domains[variable])
     neighbors = parse_neighbors(neighbors)
 
-    def restricoes_futoshiki(x, y, linha, coluna):
-        if linha:
-            
-            
+    def restricoes_futoshiki(x, y, a, b):
+        if x in variables and y in linha or \
+           x in variables and y in coluna:
+           restricoes[(x,y)] = diferentes
+
+        if (x,y) in restricoes:
+            return restricoes[(x,y)(a,b)]
+
+    return CSP(variables, domains, neighbors, restricoes_futoshiki)
