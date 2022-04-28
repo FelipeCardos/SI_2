@@ -15,6 +15,7 @@ def Futoshiki(n):
             if v != variable:
                 neighbors+=" "+v
         neighbors+=";"
+    print(neighbors)
     neighbors = parse_neighbors(neighbors[:-1])
     print(neighbors)
     print("==============================================================")
